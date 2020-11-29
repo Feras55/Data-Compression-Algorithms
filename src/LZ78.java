@@ -37,8 +37,7 @@ public class LZ78 {
             }
             ++curIdx;
         }
-        printDictionary();
-        printTags();
+
 
 
     }
@@ -67,6 +66,8 @@ public class LZ78 {
         Scanner sc = new Scanner(System.in);
         data = sc.next();
         lz78.compress(data);
+        lz78.printDictionary();
+        lz78.printTags();
 
 
 

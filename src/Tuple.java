@@ -8,5 +8,8 @@ public class Tuple {
         this.length = length;
         this.nextChar = nextChar;
     }
+    public Tuple(){
+
+    }
 
 }

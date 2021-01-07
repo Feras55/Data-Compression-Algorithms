@@ -9,6 +9,7 @@ public class LZ78 {
         dictionary.add("----");
     }
 
+
     void compress(String data) {
         int curIdx = 0;
         Pair pair = new Pair();
@@ -42,6 +43,26 @@ public class LZ78 {
 
     }
 
+
+    String decompress(){
+    String data = new String();
+    dictionary.clear();
+    dictionary.add("----"); //Setting up dictionary
+        for (Pair p :
+                tags) {
+            String symbol = new String();
+            int curIdx = p.indexInDictionary;
+            if(curIdx!=0){
+                symbol = dictionary.get(curIdx); //getting the symbol from the dictionary
+            }
+            symbol+=p.nextSymbol; //concatenating the next char to the symbol
+            dictionary.add(symbol); //adding the new symbol to the dictionary
+            data+=symbol; ///adding the symbol to the raw data
+
+        }
+    return data;
+    }
+
     void printDictionary(){
         int cntr=0;
         System.out.println("Index\tSymbol");
@@ -68,7 +89,8 @@ public class LZ78 {
         lz78.compress(data);
         lz78.printDictionary();
         lz78.printTags();
-
+        System.out.println("NOW IT IS TIME TO DECOMPRESS");
+        System.out.println(lz78.decompress());
 
 
     }
